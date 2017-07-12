@@ -1,0 +1,11 @@
+11/08/16
+ - No audio out of Debian on my NVidia Graphics card towards the HDMI output (to monitor)
+ - Went to site and installed "libasound2 alsa-base alsa-utils alsa-oss"
+ - However after I was checking, I saw the issue I was having before with the
+   video freezing on YouTube videos.
+ - Going to sort out the video later...
+ - Since I found some results on my web search for "virtualbox sound issues", showing
+   results for alsa mixer settings, I moved on to another search.
+ - Started a web search for "virtualbox /usr/local/sounds/alsa".  It showed an Arch
+   Linux result that reminded that you have to unmute all the audio channels.
+   Unmutted all the audio channels, but this didn't fix the problem.
