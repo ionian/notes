@@ -1,0 +1,49 @@
+#linux-notes
+
+#date: jul-07-2017
+#from: packt publishing 'fundamentals of linux - oliver pelz'
+#
+#
+#using vlc (shortcuts)
+# - open up videos on '~/samba-share/videos by issueing the following
+#   vlc ~/samba-share/videos/video*
+#   this will open all the videos in a playlist
+#   +  to view the playlist 'ctrl+L'
+#   +  to toggle on screen buttons on/off 'ctrl+H'
+#   +  to stop/play video 'spacebar'
+#   +  to move forward/backward 1sec 'shift+ right/left arrow'
+#   +  to move forward/backward 10sec 'ctrl+ right/left arrow'
+#   +  to move forward/backward 60sec 'meta+ right/left arrow'
+#   +  to move forward/backward 360sec 'alt+ right/left arrow'
+#   +  to change settings 'ctrl+p' (then select show settings all)
+#      ~ this is where you can change the move times above
+   
+#connect to your VM through SSH (video 1.5)
+# - ???? (need to look through this video)
+#
+#file navigation (video 2.1)
+# - using 'tree'
+#   + 'tree -d -L 3 ~ | less 
+#
+#file globbing (video 2.2)
+# - using [] in a file name to islolate results on a command
+#       example: (in the /etc directory) ls -d rc[01234].d
+#       result: rc0.d rc1.d rc2.d rc3.d rc4.d
+#       example: (in the /etc directory) ls -d rc[!3-6].d
+#       result: rco-d rc1.d rc2.d
+#
+#quoting in the shell (video 2.3)
+# - use ' single quotes ' in the file command will allow
+#   certain characters to not be taken literally
+#       certain characters: * # [ ] . ~ ! $ { } < > | " ? & ^ - / \ ,
+#       example: ls -l '!super!file!text'
+#                -rw-rw-r--. 1 mike mike 0 Apr 11 07:29 !super!file!.txt
+# - use " double quotes " in the file command wil allow
+#   you to include the following $ ` \ ! " characters to output while
+#   taking the certain characters literally
+#       example: echo "* ! $SHELL"
+#                * ! /bin/bash
+# - use \ backslash to disable special meaning of the next char
+#       example: echo \*
+#                *
+
