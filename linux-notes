@@ -46,4 +46,61 @@
 # - use \ backslash to disable special meaning of the next char
 #       example: echo \*
 #                *
+#date: jul-25-2017
+#from vimeo 'getting git - scott chacon'
+#
+#
+#git notes
+# - information about the '.git' directory
+#   the git directory host 4 things
+#   'config file', 'hooks', 'index', 'references' and 'object database'
+#
+# - the 'object databases'
+#   stores your content and creates a sha based on your content type and size.
+#   + there are 4 types of git objects:
+#     blobs, trees, commits, and tags
+#     ~ in the 'working directory' every 'file' will be turned into a blob in the 'git directory'.
+#     ~ in the 'working directory' every 'directory' will be turned into a tree in the 'git directory'.
+#     ~ the commit object shows information about the current commit and points to a root tree where that commit is.
+#         * it holds the commit msg, committer/author, the  parent info, and the initial tree pointer.
+#     ~ a tag is a pointer to a commit, has a message, the tagger, what the tag is, and object that it's tagging.
+#
+# - 'references'
+#    lightweight movable pointer that show where "HEAD", "branch", and "remotes" are currently to a commit.
+#
+# - 'index'
+#    There are three locations where git works locally.
+#    There is the 'working directory', the 'index', and the 'repository'
+#    When you're in the 'working directory', a 'git add' will stage the chage into the 'index'.
+#    When you're ready to commit everything that you've 'git add', the 'git commit' takes the change from 'index'
+#    over to 'repository'.
+#
+#date: aug-04-2017
+#from stackoverflow.com
+#
+#
+#git notes
+#
+# - for '.gitignore', instead of stating the filenames to ignore into 'git add'
+#   and 'git commit' in your local git repo, you can negate the filename with
+#   a '!' in front of the filename to tell git to include into the 'git add'
+#   and 'git commit.  Here's an example of the .gitignore file that would do
+#   that:
+#
+# -----------------------------------------------------------------------------
+#
+# Ignore everything
+# /*
+# # ...even if they are in subdirectories
+# #!*/
+
+
+# # But not these files/directories...
+# !.gitignore
+# !dir1
+# !dir1/*
+# !dir1/*/*
+# !file1
+#
+# -----------------------------------------------------------------------------
 
