@@ -103,4 +103,60 @@
 # !file1
 #
 # -----------------------------------------------------------------------------
+#
+#date: aug-07-2017 
+#from: cory schafer youtube 'how to create a network of machines in virtualbox with ssh access'
+#      cory schafer youtube 'ssh key-based authentication to ssh without a password'
+#
+# - With my 3 X Debian8 virtual machines, I setup ssh with the following:
+#   + first setup a virtual host adapter on all the machines with an ip 192.168.56.101-103
+#      - go to the preferences on virtualbox and assign the virtualbox's virtual host adapter
+#        by going to file>preferences>network>host-only-adapters(tab)> assign 192.168.56.1
+#      - then go to each vm and to assign the machines' virtual host adapter
+#        by going to machine>settings>network>adapter2(tab)>assign-adapter-to:host-only-network
+#      - now go into each machine and edit the /etc/network/interfaces with similar config:
+#              # The host-only network interface
+#                auto eth1
+#                iface eth1 inet static
+#                address 192.168.56.103
+#                netmask 255.255.255.0
+#                network 192.168.56.0
+#                broadcast 192.168.56.255
+#      - you should now be able to ping from one machine to the next.
+#   + second setup the ssh server on all the virtual machines. you can do the following:
+#      - install openssh-server 'apt-get install openssh-server' on all the machines.
+#      - make sure the ssh daemon is running 'sudo service sshd status'.
+#      - test that you can ssh to each machine just with password authentication.
+#      - then try to setup ssh key authentication
+#              ~ here's the manual way to setup ssh key authentication.  alternately you
+#                can do 'ssh-copy-id'.
+#                    + 'ssh-keygen -t rsa -b 4096 -f ~/.ssh/dev1 -C "dev1"
+#                    + this will create a private (keep on client) and public (keep on server) key
+#                    + use scp to copy the public key over to the machine you'll be connecting to.
+#                    + 'scp ~/.ssh/dev2.pub mike@debian-dev2:~/.ssh/dev2-uploaded_key.pub'
+#                    + then go over to the mike@debian-dev2 machine and enter the following:
+#                    + 'cat ~/.ssh/dev2-uploaded_key.pub >> authorized_keys 
+#                    + go back over to mike@debian-dev1 machine and try to ssh into
+#                      mike@debian-dev2 machine and see if it doesn't ask for password authentication.
+#   + third step would be to setup the ~/.ssh/config file in order to assign a hostname and key file.
+#     the hostname allows you to create a short name to use as the name when logging in.  The key file
+#     allows you to direct where that hostname should find it's public key.
+#              ~ to setup the config file, add the following similar lines into the config file:
+#              #This is a list of machines that have ssh server running on them via their virtual host adapter.
+#              
+#              Host dev1
+#                HostName debian-dev1
+#                IdentityFile ~/.ssh/dev1
+#              Host dev2
+#                HostName debian-dev2
+#                IdentityFile ~/.ssh/dev2
+#              Host dev3
+#                HostName debian-dev3
+#                IdentityFile ~/.ssh/dev3
+#
+#              ~ now you should be able to ssh from debian-dev1 to debian-dev2 by doing these shorter comands:
+#                  ssh mike@dev2
+#
+#from: https://confluence.atlassian.com/bitbucket/configure-multiple-ssh-identities-for-gitbash-mac-osx-linux-271943168.html
+#this was a good resource as well to show how to shorten up some of the hostnames etc.
 
