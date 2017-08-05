@@ -86,7 +86,12 @@
 #   a '!' in front of the filename to tell git to include into the 'git add'
 #   and 'git commit.  Here's an example of the .gitignore file that would do
 #   that:
-#
+#       + a good reason for doing this is you'll exclusively know what files
+#         and directories are being included into the repo.
+#       + another reason negating filenames is that you will have your
+#         .gitignore file on a public repo, and if you put a list of ignore
+#         files and directories into the .gitignore, the public will see
+#         this, and it could expose vounerabilities.
 # -----------------------------------------------------------------------------
 #
 # Ignore everything
@@ -159,4 +164,6 @@
 #
 #from: https://confluence.atlassian.com/bitbucket/configure-multiple-ssh-identities-for-gitbash-mac-osx-linux-271943168.html
 #this was a good resource as well to show how to shorten up some of the hostnames etc.
+
+
 
