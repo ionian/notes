@@ -166,4 +166,13 @@
 #this was a good resource as well to show how to shorten up some of the hostnames etc.
 
 
-
+#date: aug-05-17 
+#from: miguel grinberg 'flask web development'
+#
+#   started to read his book.  i also cloned his repo as suggested in the book
+#   https://github.com/miquelgrinberg/flasky.git over to 'dev1'.  interested to
+#   see if there are commonalities in flask and the eve (flask) framework that
+#   i can coorelate to help understand the pysattunner.py code.
+#
+#   also interesting how he uses git tags on branches of his repo to allow the
+#   students to step through various examples.
