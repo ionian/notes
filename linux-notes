@@ -176,3 +176,18 @@
 #
 #   also interesting how he uses git tags on branches of his repo to allow the
 #   students to step through various examples.
+
+
+#date: sep-01-17
+#from: various sites (bookmarked in chrome account 'ntp' folder)
+#
+#   added some notes into the wiki at work www.wiki.pactv.com, since the task
+#   of getting some servers (ftp 10.21.18.141 and mta 10.21.18.24) to sync to
+#   ntp was work related.  Here are some of the things I found out that
+#   helped get ntp to work.
+#
+#   you can run an ntp client via the ntpd.  first install ntp onto the
+#   computer that you need to sync to an ntp server.  Then edit the
+#   file /etc/ntp.conf.  Add in the ntp server name that you want to sync to.
+#   You will also need to add INPUT and OUTPUT rules to the iptables to allow
+#   ntp to come into the computer.
